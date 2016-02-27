@@ -1,0 +1,33 @@
+package com.example.matchquest.DataManipulation.Teams;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.matchquest.View.teams.Team;
+
+public class TeamListDM {
+
+	public List<Team> getTeamData() 
+	{
+		List<Team> teamData = new ArrayList<Team>();
+		for(int j = 0 ; j < 50000 ; j ++)
+		{
+			for(int k = 0 ; k < 50000 ; k ++)
+			{
+				
+			}
+		}
+		for(int i = 1 ;i < 20 ; i ++)
+		{
+			Team team = new Team();
+			team.setTeamId("teamId" + i);
+			team.setTeamName("teamName " + i);
+//			team.setNumPlayers(team.getRegisteredPlayers().size());
+			team.setCaptain("captain" + i);
+			team.setViceCaptain("vice captain" + i);
+			team.setTeamCode("code1" + i);
+			teamData.add(team);
+		}
+		return teamData;
+	}
+}

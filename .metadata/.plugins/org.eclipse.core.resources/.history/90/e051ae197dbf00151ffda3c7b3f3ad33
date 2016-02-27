@@ -1,0 +1,49 @@
+package com.example.matchquest.View.RequestStatus;
+
+import java.util.List;
+import java.util.Map;
+
+import com.example.matchquest.R;
+import com.example.matchquest.DataManipulation.DrawerLayout.DrawerLayoutDM;
+import com.example.matchquest.DataManipulation.RequestStatus.RequestStatusDM;
+import com.example.matchquest.View.Drawerlayout.MatchStatusAdpter;
+import com.example.matchquest.common.TeamQuestConstants;
+import com.example.matchquest.model.MatchStatus;
+import com.example.matchquest.model.RequestStatus;
+import com.example.matchquest.model.Team;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+
+public class RequestStatusActivity extends ActionBarActivity{
+	
+	RecyclerView requestStatusRecyclerView;
+	
+	RequestStatusAdapter requestStatusAdapter;
+	
+	TextView emptyView;
+	
+	Team team;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.request_status_fragment_layout);
+		
+		team = (Team) getIntent().getSerializableExtra(TeamQuestConstants.team_key);
+		
+		 getSupportActionBar().setTitle(team.getTeamName());
+	        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+			getSupportActionBar().setHomeButtonEnabled(true);
+		requestStatusRecyclerView = (RecyclerView) findViewById(R.id.request_status_recycle_view);
+		requestStatusRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+		RequestStatusDM requestStatusData = new RequestStatusDM();
+		Map<String,List<RequestStatus>> requestStatusMap = requestStatusData.getRequestStatusDetails(team);
+		requestStatusAdapter = new RequestStatusAdapter(getApplicationContext(),0,0, requestStatusMap);
+		requestStatusRecyclerView.setAdapter(requestStatusAdapter);
+	}
+
+}

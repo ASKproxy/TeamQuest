@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;materialsetup/res/drawable-hdpi/accept-button.jpg&apos; to &apos;accept_button.jpg&apos;" description="Rename resource &apos;accept-button.jpg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable-hdpi/accept-button.jpg" name="accept_button.jpg" stamp="1439999027378" updateReferences="true"/>
+</session>

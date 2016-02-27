@@ -1,0 +1,170 @@
+package com.example.matchquest.View.teams;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.matchquest.R;
+import com.example.matchquest.DataManipulation.Teams.TeamListDM;
+
+import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.opengl.Visibility;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+
+
+
+public class TeamListFragment extends Fragment implements View.OnClickListener {
+
+	
+	// Declare Variables
+	View rootView;
+	RecyclerView recyclerView;
+	TextView emptyText;
+	ProgressDialog mProgressDialog;
+	TeamAdapter adapter;
+	List<String> teamId;
+	String playerId;
+	List<Team> teamData;
+	public TeamListFragment() {
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+
+	}
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		playerId = getArguments().getString("playerNo");
+		 rootView = inflater.inflate(R.layout.fragment_team_list, container, false);
+		 emptyText = (TextView) rootView.findViewById(R.id.empty_view);
+		 recyclerView = (RecyclerView) rootView.findViewById(R.id.drawerList);
+		 
+		 ((ActionBarActivity)getActivity()).getSupportActionBar().setDisplayShowCustomEnabled(false);
+		 teamData = new ArrayList<Team>();
+			recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+			// Pass the results into an ArrayAdapter
+			adapter = new TeamAdapter(getActivity().getApplicationContext(), 0, 0, teamData,recyclerView);
+		 new RemoteDataTask().execute();
+		return rootView;
+	}
+
+
+	@Override
+	public void onClick(View v)
+	{
+
+		switch(v.getId())
+		{
+		
+		}
+
+	}
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		
+		 super.onCreateOptionsMenu(menu, inflater);
+		
+	}
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+	}
+	// RemoteDataTask AsyncTask
+		private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
+			@Override
+			protected void onPreExecute() {
+				super.onPreExecute();
+				// Create a progressdialog
+				mProgressDialog = new ProgressDialog(getActivity());
+//				 Set progressdialog title
+				mProgressDialog.setTitle("List of Teams");
+//				 Set progressdialog message
+				mProgressDialog.setMessage("Loading...");
+				mProgressDialog.setIndeterminate(false);
+				// Show progressdialog
+				mProgressDialog.show();
+			}
+	 
+			@Override
+			protected Void doInBackground(Void... params) {
+
+				TeamListDM teamListDm = new TeamListDM();
+				 teamData.addAll(teamListDm.getTeamData());
+				return null;
+			}
+	 
+			@Override
+			protected void onPostExecute(Void result) {
+				if(teamData != null && teamData.size() >0 )
+				{
+				teamId = new ArrayList<String>();
+				// Locate the listview in listview_main.xml
+				
+				// Retrieve object "team_name" from Parse.com database
+//				for (ParseObject teamObject : ob) {
+//					Team team = new Team();
+//					team.setTeamId(teamObject.getString("teamId"));
+//					team.setTeamName(teamObject.getString("teamName"));
+//					team.setRegisteredPlayers((ArrayList)teamObject.getList("registeredPlayers"));
+//					team.setNumPlayers(team.getRegisteredPlayers().size());
+//					team.setCaptain(teamObject.getString("captain"));
+//					adapter.add(team);
+//					teamId.add(teamObject.getString("teamId"));
+//				}
+				// Binds the Adapter to the ListView
+				adapter.notifyDataSetChanged();
+				recyclerView.setAdapter(adapter);
+				
+				// Close the progressdialog
+				
+				// Capture button clicks on ListView items
+//				listview.setOnItemClickListener(new OnItemClickListener() {
+//					@Override
+//					public void onItemClick(AdapterView<?> parent, View view,
+//							int position, long id) {
+//						Intent teamDetail = new Intent(getActivity(),TeamDetail.class);
+//						teamDetail.putExtra("teamDetails", adapter.getItem(position));
+//						Details.setTeam(adapter.getItem(position));
+//						startActivity(teamDetail);
+//						
+//					}
+//				});
+				}else{
+					recyclerView.setVisibility(View.GONE);
+					emptyText.setVisibility(View.VISIBLE);
+				}
+				mProgressDialog.dismiss();
+			}
+		}
+	
+		
+}

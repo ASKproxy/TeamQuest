@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;MatchQuest/src/com/example/matchquest/SQLiteData/teams.java&apos;" deleteContents="false" description="Delete resource &apos;MatchQuest/src/com/example/matchquest/SQLiteData/teams.java&apos;" element1="/MatchQuest/src/com/example/matchquest/SQLiteData/teams.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1446643583012"/>
+</session>

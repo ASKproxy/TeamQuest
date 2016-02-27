@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MatchQuest/res/drawable-hdpi/5_content_edit.png&apos; to &apos;content_edit.png&apos;" description="Rename resource &apos;5_content_edit.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable-hdpi/5_content_edit.png" name="content_edit.png" stamp="1448361606636" updateReferences="true"/>
+</session>

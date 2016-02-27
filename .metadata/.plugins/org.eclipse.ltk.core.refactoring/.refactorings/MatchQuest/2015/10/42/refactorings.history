@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MatchQuest/res/drawable-hdpi/add mem.png&apos; to &apos;addmem.png&apos;" description="Rename resource &apos;add mem.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable-hdpi/add mem.png" name="addmem.png" stamp="1444667881490" updateReferences="true"/>
+</session>

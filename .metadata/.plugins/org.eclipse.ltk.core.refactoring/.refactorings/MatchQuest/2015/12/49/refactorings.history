@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MatchQuest/src/com/example/matchquest/DataManipulation/topicDetail/TopicDetail.java&apos; to &apos;TopicDetailDM.java&apos;" description="Rename resource &apos;TopicDetail.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/example/matchquest/DataManipulation/topicDetail/TopicDetail.java" name="TopicDetailDM.java" stamp="1449076291833" updateReferences="true"/>
+</session>

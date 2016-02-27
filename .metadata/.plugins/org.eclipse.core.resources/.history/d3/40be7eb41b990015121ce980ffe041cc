@@ -1,0 +1,262 @@
+package com.example.matchquest.View.teamDetail;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+
+import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.matchquest.R;
+import com.example.matchquest.DataManipulation.topicDetail.TopicDetailDM;
+import com.example.matchquest.common.TeamQuestConstants;
+import com.example.matchquest.model.Players;
+import com.example.matchquest.model.Team;
+import com.example.matchquest.model.TopicDetails;
+
+public class TeamDetailFragment extends Fragment{
+
+	Team team;
+	View rootView;
+	ProgressDialog mProgressDialog;
+	boolean toUpdate;
+	ImageView expandIcon;
+	ImageView collapseIcon;
+	View seperator;
+	LinearLayout nextGameLayout;
+	
+	ImageView generalExpandIcon;
+	ImageView generalCollapseIcon;
+	View generalSeperator;
+	LinearLayout generalLayout;
+	Button addTopic;
+	
+	View nextGameView;
+	LinearLayout nextgameTopicLayout;
+	TextView topicQues;
+	TextView topicAns;
+	ImageView topicIcon;
+	
+	View nextGameOptionsView;
+	TextView topicOption;
+	TextView topicOptionDetail;
+	CheckBox optionCheckBox;
+	
+	View generalView;
+	LinearLayout generalTopicLayout;
+	TextView generalTopicQues;
+	TextView generalTopicAns;
+	ImageView generalTopicIcon;
+	
+	View generalOptionsView;
+	TextView generalTopicOption;
+	TextView generalTopicOptionDetail;
+	CheckBox generalOptionCheckBox;
+	
+	LayoutInflater inflater;
+	ViewGroup container;
+	
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		
+		this.inflater = inflater;
+		this.container = container;
+		team = (Team) getArguments().getSerializable(TeamQuestConstants.team_key);
+		toUpdate = getArguments().getBoolean(TeamQuestConstants.toupdate_key,false);
+		rootView = inflater.inflate(R.layout.team_detail_fragment_layout, container, false);
+		
+		expandIcon = (ImageView) rootView.findViewById(R.id.expand_icon_team_detail);
+		collapseIcon = (ImageView) rootView.findViewById(R.id.collapse_icon_team_detail);
+		seperator = rootView.findViewById(R.id.seperatorView_nextGame);
+		nextGameLayout = (LinearLayout) rootView.findViewById(R.id.nextgame_view_team_detail);
+		
+		generalExpandIcon = (ImageView) rootView.findViewById(R.id.expand_icon_general_team_detail);
+		generalCollapseIcon = (ImageView) rootView.findViewById(R.id.collapse_icon_general_team_detail);
+		generalSeperator = rootView.findViewById(R.id.seperatorView_general);
+		generalLayout = (LinearLayout) rootView.findViewById(R.id.general_view_team_detail);
+		addTopic = (Button) rootView.findViewById(R.id.addtopic_team_detail);
+		
+		nextGameIconListeners();
+		generalIconListeners();
+		
+		TopicDetailDM topicDetails = new TopicDetailDM();
+		List<TopicDetails> topicDetailList = topicDetails.getTopicDetailTeam(team.getTeamId());
+		
+		addNextGameDetails(topicDetailList);
+		addGeneralDetails(topicDetailList);
+		
+		return rootView;
+	}
+	
+	private void nextGameIconListeners()
+	{
+		expandIcon.setVisibility(View.GONE);
+		nextGameLayout.setVisibility(View.VISIBLE);
+		collapseIcon.setVisibility(View.VISIBLE);
+		seperator.setVisibility(View.VISIBLE);
+		expandIcon.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				expandIcon.setVisibility(View.GONE);
+				collapseIcon.setVisibility(View.VISIBLE);
+				seperator.setVisibility(View.VISIBLE);
+				nextGameLayout.setVisibility(View.VISIBLE);
+			}
+		});
+		collapseIcon.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				expandIcon.setVisibility(View.VISIBLE);
+				collapseIcon.setVisibility(View.GONE);
+				seperator.setVisibility(View.GONE);
+				nextGameLayout.setVisibility(View.GONE);
+			}
+		});
+	}
+
+	private void generalIconListeners()
+	{
+		generalExpandIcon.setVisibility(View.GONE);
+		generalLayout.setVisibility(View.VISIBLE);
+		generalCollapseIcon.setVisibility(View.VISIBLE);
+		generalSeperator.setVisibility(View.VISIBLE);
+		generalExpandIcon.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				generalExpandIcon.setVisibility(View.GONE);
+				generalCollapseIcon.setVisibility(View.VISIBLE);
+				generalSeperator.setVisibility(View.VISIBLE);
+				generalLayout.setVisibility(View.VISIBLE);
+			}
+		});
+		generalCollapseIcon.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				generalExpandIcon.setVisibility(View.VISIBLE);
+				generalCollapseIcon.setVisibility(View.GONE);
+				generalSeperator.setVisibility(View.GONE);
+				generalLayout.setVisibility(View.GONE);
+			}
+		});
+	}
+	private void addNextGameDetails(List<TopicDetails> topicDetailList)
+	{
+		int i = 0;
+		for(final TopicDetails topicDetail : topicDetailList)
+		{
+			nextGameView = inflater.inflate(R.layout.topic_detail_layout, null);
+			nextgameTopicLayout = (LinearLayout) nextGameView.findViewById(R.id.topic_detail_layout_id);
+//			nextgameTopicLayout.setId(R.id.topic_detail_layout_id + 1234 + i);
+			topicQues = (TextView) nextGameView.findViewById(R.id.topic_ques);
+			topicAns = (TextView) nextGameView.findViewById(R.id.topic_ans);
+			topicIcon = (ImageView) nextGameView.findViewById(R.id.topic_detail_icon);
+			
+			final LinearLayout nextgameOptionDetailLayout = (LinearLayout) 
+					nextGameView.findViewById(R.id.topic_option_layout);
+			
+			Button nextGameSaveOption = (Button) nextGameView.findViewById(R.id.topic_options_save);
+			
+			nextgameTopicLayout.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					if(nextgameOptionDetailLayout.getVisibility() == View.GONE)
+					{
+						if(topicDetail.getOptions()!= null)
+						{
+						nextgameOptionDetailLayout.setVisibility(View.VISIBLE);
+						}
+					}else{
+						nextgameOptionDetailLayout.setVisibility(View.GONE);
+					}
+				}
+			});
+			topicQues.setText(topicDetail.getTopic());
+			topicAns.setText(topicDetail.getOption());
+			nextGameLayout.addView(nextGameView);
+			
+			nextgameOptionDetailLayout.setVisibility(View.GONE);
+			int j = 0;
+			for(Entry<String, List<Players>> entry :  topicDetail.getOptions().entrySet())
+			{
+			nextGameOptionsView =inflater.inflate(R.layout.topic_option_layout, null);
+			topicOption = (TextView) nextGameOptionsView.findViewById(R.id.topic_options);
+			topicOptionDetail = (TextView) nextGameOptionsView.findViewById(R.id.topic_options_detail);
+			optionCheckBox = (CheckBox) nextGameOptionsView.findViewById(R.id.topic_options_checkbox);
+			
+			topicOption.setText(entry.getKey());
+			topicOptionDetail.setText(entry.getValue().size() + " players choosed this" );
+			
+			nextgameOptionDetailLayout.addView(nextGameOptionsView,j);
+			j++;
+			}
+			i++;
+		}
+		
+	}
+	
+	private void addGeneralDetails(List<TopicDetails> topicDetailList) {
+
+		for(int i = 0 ; i < 4 ; i ++)
+		{
+			generalView = inflater.inflate(R.layout.topic_detail_layout, null);
+			generalTopicLayout = (LinearLayout) generalView.findViewById(R.id.topic_detail_layout_id);
+			generalTopicQues = (TextView) generalView.findViewById(R.id.topic_ques);
+			generalTopicAns = (TextView) generalView.findViewById(R.id.topic_ans);
+			generalTopicIcon = (ImageView) generalView.findViewById(R.id.topic_detail_icon);
+			
+			final LinearLayout generalOptionDetailLayout = (LinearLayout) 
+					generalView.findViewById(R.id.topic_option_layout);
+			
+			Button generalSaveOption = (Button) generalView.findViewById(R.id.topic_options_save);
+			
+			generalTopicLayout.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					if(generalOptionDetailLayout.getVisibility() == View.GONE)
+					{
+						generalOptionDetailLayout.setVisibility(View.VISIBLE);
+					}else{
+						generalOptionDetailLayout.setVisibility(View.GONE);
+					}
+				}
+			});
+			generalTopicQues.setText("ques genal");
+			generalTopicAns.setText("and genreal");
+			generalLayout.addView(generalView,i);
+			
+			generalOptionDetailLayout.setVisibility(View.GONE);
+			
+			for(int j = 0 ;j < 3 ; j ++)
+			{
+			generalOptionsView =inflater.inflate(R.layout.topic_option_layout, null);
+			generalTopicOption = (TextView) generalOptionsView.findViewById(R.id.topic_options);
+			generalTopicOptionDetail = (TextView) generalOptionsView.findViewById(R.id.topic_options_detail);
+			generalOptionCheckBox = (CheckBox) generalOptionsView.findViewById(R.id.topic_options_checkbox);
+			
+			generalTopicOption.setText("option general " + j + i);
+			generalTopicOptionDetail.setText("option detail " + j + i);
+			generalOptionDetailLayout.addView(generalOptionsView,j);
+			}
+		}
+		
+	
+	}
+}

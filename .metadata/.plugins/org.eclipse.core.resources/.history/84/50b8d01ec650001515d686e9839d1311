@@ -1,0 +1,7 @@
+package com.example.materialsetup;
+
+import android.widget.ArrayAdapter;
+
+public class AutoAdapter extends ArrayAdapter<String>{
+
+}

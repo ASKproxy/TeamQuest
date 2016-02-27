@@ -1,0 +1,32 @@
+package com.example.matchquest.common;
+
+import com.example.matchquest.model.Players;
+import com.example.matchquest.model.Team;
+
+
+public class Details {
+	
+	
+	static Players player;
+	
+	static Team team;
+	
+	
+	
+	public static Players getPlayer() {
+		return player;
+	}
+	public static void setPlayer(Players player) {
+		Details.player = player;
+	}
+	public static Team getTeam() {
+		return team;
+	}
+	public static void setTeam(Team team) {
+		Details.team = team;
+	}
+	
+	
+	
+
+}

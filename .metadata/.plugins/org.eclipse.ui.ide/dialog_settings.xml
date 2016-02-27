@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="false" key="ShowDerived"/>
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/materialsetup/src/com/example/materialsetup/DrawerAdapter.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/res/layout/team_creation.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/res/layout/team_edit_layout.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/materialsetup/res/menu/main.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/materialsetup/src/com/example/materialsetup/MainActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/MainActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/teams/TeamCreationActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/teams/AddMemersPopUp.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/teams/TeamListFragment.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/teamDetail/TopicDetailActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/CommonActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/CommonActivityWithFragment.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/CommonFragment.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/res/layout/find_opponent_activity_layout.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/res/layout/find_opponent_fragment_layout.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/common/TeamQuestConstants.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/DataManipulation/RequestStatus/RequestStatusDM.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/DataManipulation/FindOpponent/FindOpponentDM.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/teams/TeamAdapter.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/model/RequestStatus.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/model/Players.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/MatchSchedule/MatchScheduleAdapter.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/DataManipulation/MatchSchedule/MatchScheduleDM.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/SQLiteData/matchSchedule/DrawerSqlite.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/src/com/example/matchquest/View/Drawerlayout/MatchStatusFragment.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/MatchQuest/res/values/strings.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="700" key="DIALOG_WIDTH"/>
+			<item value="53" key="DIALOG_Y_ORIGIN"/>
+			<item value="350" key="DIALOG_X_ORIGIN"/>
+			<item value="628" key="DIALOG_HEIGHT"/>
+			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/manoj/workspace/materialsetup/Support7Demos"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="ResourceNavigator">
+		<item value="Aggregate for window 1438618801468" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="false" key="LINK_NAVIGATOR_TO_EDITOR"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="633" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="348" key="DIALOG_X_ORIGIN"/>
+		<item value="616" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="CleanDialogSettings">
+		<item value="603" key="DIALOG_WIDTH"/>
+		<item value="150" key="DIALOG_Y_ORIGIN"/>
+		<item value="434" key="DIALOG_X_ORIGIN"/>
+		<item value="538" key="DIALOG_HEIGHT"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="com.android.ide.eclipse.adt.project.NewProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="com.android.ide.eclipse.wizards.category"/>
+		</list>
+	</section>
+</section>
